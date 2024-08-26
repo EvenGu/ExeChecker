@@ -1,0 +1,73 @@
+data: 'uiprmd_skeleton'
+class_num: 20
+joints_num: 17
+folder_path: ./processed_uiprmd/xsub
+data_param:
+  train_data_param:
+    random_choose: True
+    center_choose: False
+    window_size: 100
+    final_size: 80
+    num_skip_frame:
+    decouple_spatial: 0
+  val_data_param:
+    random_choose: False
+    center_choose: True
+    window_size: 100
+    final_size: 80
+    num_skip_frame:
+    decouple_spatial: 0
+
+# triplet training
+task: multi
+exercise_class: [0]
+triplet_model: 'basic'
+triplet_model_param:
+  embedding_dim: 128
+
+# backbone model for exec. classification and feat. extraction
+model: 'stgat'
+model_param:
+  num_frame: 80
+  num_subset: 8 # transformer head
+  use_spatial_att: True
+  att_s: True
+  glo_reg_s: True
+  # use_pes: True
+  use_temporal_att: True
+  att_t: True
+  glo_reg_t: False
+  use_pet: True
+  dropout: 0.2
+  attentiondrop: 0
+  dropout2d: 0
+  config: [ [64, 64, 16, 1], [64, 64, 16, 1],
+            [64, 128, 32, 2], [128, 128, 32, 1],
+            [128, 256, 64, 2], [256, 256, 64, 1],
+            [256, 256, 64, 1], [256, 256, 64, 1],
+  ]
+
+batch_size: 32
+worker: 8
+pin_memory: False
+num_step_per_validate: 4000
+num_epoch_per_save: 1
+max_epoch: 6
+model_saved_name:  './checkpoints_perExe/tmp'
+last_model: './checkpoints_perExe/uiprmd_stgat/exe0_tmp.pth'
+pre_trained_model:
+ignore_weights: ['fc']
+device_id: [0]
+debug: False
+val_first: False
+
+# lr
+lr: 0.001 # 0.01
+wd: 0.0005 # 0.0005
+lr_decay_ratio: 0.9
+lr_multi_keys: [] # lr_key, ratio_lr, ratio_wd, lr_epoch
+lr_scheduler: 'exponential' # graph
+warm_up_epoch: 0
+
+optimizer: 'adamW'
+freeze_keys: [] #[['input_map', 1]]

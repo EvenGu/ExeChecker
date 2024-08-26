@@ -1,0 +1,73 @@
+data: 'execheck_skeleton'
+class_num: 20
+joints_num: 21
+folder_path: ./processed_execheck/xsub
+data_param:
+  train_data_param:
+    random_choose: True
+    center_choose: False
+    window_size: 160
+    final_size: 128
+    num_skip_frame:
+    decouple_spatial: 1
+  val_data_param:
+    random_choose: False
+    center_choose: True
+    window_size: 160
+    final_size: 128
+    num_skip_frame:
+    decouple_spatial: 1
+
+# triplet training
+task: multi
+exercise_class: [0]
+triplet_model: 'basic'
+triplet_model_param:
+  embedding_dim: 128
+
+# backbone model for exec. classification and feat. extraction
+model: 'stgat'
+model_param:
+  num_frame: 128
+  num_subset: 8 # transformer head
+  use_spatial_att: True
+  att_s: True
+  glo_reg_s: True
+  # use_pes: True
+  use_temporal_att: True
+  att_t: True
+  glo_reg_t: False
+  use_pet: True
+  dropout: 0.2
+  attentiondrop: 0
+  dropout2d: 0
+  config: [ [64, 64, 16, 1], [64, 64, 16, 1],
+            [64, 128, 32, 2], [128, 128, 32, 1],
+            [128, 256, 64, 2], [256, 256, 64, 1],
+            [256, 256, 64, 1], [256, 256, 64, 1],
+  ]
+
+batch_size: 20
+worker: 8
+pin_memory: False
+num_step_per_validate: 2000
+num_epoch_per_save: 1
+max_epoch: 10
+model_saved_name:  './checkpoints_perExe/tmp'
+last_model: 
+pre_trained_model:
+ignore_weights: ['fc']
+device_id: [0]
+debug: False
+val_first: False
+
+# lr
+lr: 0.001 # 0.01
+wd: 0.005 # 0.0005
+lr_decay_ratio: 0.9
+lr_multi_keys: [] # lr_key, ratio_lr, ratio_wd, lr_epoch
+lr_scheduler: 'exponential' # graph
+warm_up_epoch: 0
+
+optimizer: 'adamW'
+freeze_keys: []
