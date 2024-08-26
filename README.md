@@ -2,7 +2,8 @@
 This repo holds the code for: ExeChecker: Where did I go wrong? ([pdf]())
 
 ## Data Preparation 
-We experimented on two datasts: **ExeCheck** and **UI-PRMD**. Both datasets contains correct and incorrect movements related to common exercises performed by patients in physical therapy and rehabilitation programs. To use for our experiments, you can unzip the files in `processed_execheck` and `processed_uiprmd` folders and proceed with the training.
+We experimented on two datasts: **ExeCheck** and **UI-PRMD**. Both datasets contains correct and incorrect movements related to common exercises performed by patients in physical therapy and rehabilitation programs. 
+To use for our experiments, you can download the processed dataset from [here](https://www.dropbox.com/scl/fo/4x67pmfzhtg6zr8uliui8/ANDjQ1herFfXyroSe3ReGRg?rlkey=g8jtkwxqc7w44gve1tn2p6aai&st=jugecrry&dl=0), unzip the them, place them in the folder of `processed_execheck` and `processed_uiprmd` correspondingly and proceed with the training.
 The processed dataset has been segmented on repititions and augmented with mirroring.
 ### ExeCheck
 The [ExeCheck](https://www.cs.bu.edu/faculty/betke/ExeChecker/) dataset consists of RGB-D videos of 10 rehabilitation exercises performed by 7 healthy subjects collected by a Azure Kinect sensor. Each exercise has a paired performance in both correct and incorrect forms by the same subject with 5 movement repetitions. You can download the original dataset from the [Dropbox](https://www.dropbox.com/scl/fo/lnqjvz4iiodew7aw5ur7m/AG8WUBHomA2EdgNmTmits2g?rlkey=l9pmf59h9eegsnvacrjw4tn7h&st=77lmqg7w&dl=0)
