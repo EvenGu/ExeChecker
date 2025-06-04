@@ -1,5 +1,5 @@
 ## ExeChecker
-This repo holds the code for: ExeChecker: Where did I go wrong? ([pdf]())
+This repo holds the code for: ExeChecker: Where did I go wrong? ([link](https://link.springer.com/chapter/10.1007/978-3-031-92591-7_21#Sec15), [pdf](https://arxiv.org/pdf/2412.10573))
 
 ## Data Preparation 
 We experimented on two datasts: **ExeCheck** and **UI-PRMD**. Both datasets contains correct and incorrect movements related to common exercises performed by patients in physical therapy and rehabilitation programs. 
