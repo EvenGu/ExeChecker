@@ -10,7 +10,7 @@ The [ExeCheck](https://www.cs.bu.edu/faculty/betke/ExeChecker/) dataset consists
 ### UI-PRMD
 The [UI-PRMD](https://webpages.uidaho.edu/ui-prmd/) consists of 10 rehabilitation movements. A sample of 10 healthy individuals repeated each movement 10 times in front of two sensory systems for motion capturing: a Vicon optical tracker, and a Kinect camera. The data is presented as positions and angles of the body joints in the skeletal models provided by the Vicon and Kinect mocap systems. 
 ### Custom Dataset
-You can also create your own dataset using the scripts in the `prepare` folder with cooresponding modifications.
+You can also create your own dataset using the scripts in the `prepare` folder with corresponding modifications.
 
 
 ## Training & Testing
@@ -19,9 +19,16 @@ Change the config file according to your needs, then run with
 
 
 ## Citation
-If you find our research helpful, please consider cite this work:
+If you find our research helpful, please cite this work:
 ```
-placeholder
+@inproceedings{gu2025exechecker,
+  title={ExeChecker: Where Did I Go Wrong?},
+  author={Gu, Yiwen and Patel, Mahir and Betke, Margrit},
+  booktitle={European Conference on Computer Vision},
+  pages={340--355},
+  year={2025},
+  organization={Springer}
+}
 ```
 
 ## Code Acknowledgment
